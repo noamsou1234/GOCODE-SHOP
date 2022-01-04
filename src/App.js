@@ -1,6 +1,7 @@
 import Products from "./components/Products/Products";
 import Header from "./components/Header/Header";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
   const products = [
@@ -271,10 +272,25 @@ function App() {
       },
     },
   ];
+  const categoriesArr = products
+    .map((p) => p.category)
+    .filter((value, index, array) => array.indexOf(value) === index);
+
+  const categoriesArray = [...categoriesArr, "All"];
+
+  const [filterArr, setFilterArr] = useState(products);
+
+  const selectCategory = (category) => {
+    setFilterArr(products.filter((cate) => cate.category === category));
+    if (category === "All") {
+      setFilterArr(products);
+    }
+  };
+
   return (
     <>
-      <Header />
-      <Products products={products} />
+      <Header categories={categoriesArray} select={selectCategory} />
+      <Products products={filterArr} />
     </>
   );
 }
