@@ -17,7 +17,7 @@ export default function Product({
         <img src={image} alt="img" />
       </div>
       <div className="product-info">
-        <h5> {description}</h5>
+        {/* <h5> {description}</h5> */}
         <h6> {price}</h6>
       </div>
     </div>
