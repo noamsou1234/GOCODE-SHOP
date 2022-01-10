@@ -10,6 +10,7 @@ export default function Product({
   rating,
   rate,
   count,
+  add,
 }) {
   return (
     <div className="product-card">

@@ -12,6 +12,7 @@ export default function Products(props) {
           price={product.price}
           image={product.image}
           description={product.description}
+          add={props.addToCart}
         />
       ))}
     </ul>
